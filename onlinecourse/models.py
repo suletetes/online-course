@@ -78,9 +78,7 @@ class Lesson(models.Model):
     content = models.TextField()
 
 
-# Enrollment model
-# <HINT> Once a user enrolled a class, an enrollment entry should be created between the user and course
-# And we could use the enrollment to track information such as exam submissions
+# Enrollment model connected to db
 class Enrollment(models.Model):
     AUDIT = 'audit'
     HONOR = 'honor'
@@ -98,12 +96,6 @@ class Enrollment(models.Model):
 
 
 # <HINT> Create a Question Model with:
-# Used to persist question content for a course
-# Has a One-To-Many (or Many-To-Many if you want to reuse questions) relationship with course
-# Has a grade point for each question
-# Has question content
-# Other fields and methods you would like to design
-
 class Question(models.Model):
     # Foreign key to course(not lesson)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
@@ -128,12 +120,6 @@ class Question(models.Model):
 #     lesson = models.ForeignKey(Lesson, on_delete=CASCADE)
 #     question = models.ForeignKey(Question, on_delete=CASCADE)
 
-#  <HINT> Create a Choice Model with:
-# Used to persist choice content for a question
-# One-To-Many (or Many-To-Many if you want to reuse choices) relationship with Question
-# Choice content
-# Indicate if this choice of the question is a correct one or not
-# Other fields and methods you would like to design
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     # Many-to-Many version
@@ -146,7 +132,7 @@ class Choice(models.Model):
 # One enrollment could have multiple submission
 # One submission could have multiple choices
 # One choice could belong to multiple submissions
+# impported into another class
 class Submission(models.Model):
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
-#    Other fields and methods you would like to design
