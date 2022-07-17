@@ -28,7 +28,7 @@ DEBUG = True
 
 # <HINT> add your cloud host here
 ALLOWED_HOSTS = [
-    "*"
+    "suleimanDjango.eu-gb.mybluemix.net"
     ]
 
 

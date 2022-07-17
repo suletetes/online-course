@@ -1,17 +1,11 @@
-apps:
-- name: djangoCourse
-  random-route: true
-  memory: 128M
-
-#
-#  applications:
-#  - name: onlinecourse
-#    routes:
-#      - route: host.domain
-#    memory: 128M
-#    buildpack: python_buildpack
-#  - name: onlinecourse-nginx
-#    routes:
-#      - route: host.domain/static
-#    memory: 128M
-#    buildpack: staticfile_buildpack
+applications:
+  - name: onlinecourse
+    routes:
+      - route: suleimanDjango.eu-gb.mybluemix.net
+    memory: 128M
+    buildpack: python_buildpack
+  - name: onlinecourse-nginx
+    routes:
+      - route: suleimanDjango.eu-gb.mybluemix.net/static
+    memory: 128M
+    buildpack: staticfile_buildpack
